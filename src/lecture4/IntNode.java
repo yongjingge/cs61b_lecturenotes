@@ -2,8 +2,8 @@ package lecture4;
 
 public class IntNode {
 
-    int item;
-    IntNode next;
+    public int item;
+    public IntNode next;
 
     public IntNode(int item, IntNode next) {
         this.item = item;
