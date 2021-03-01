@@ -10,8 +10,8 @@ public class DLList {
     public DLList() {
         sentinel = new IntNode(35, null, null);
         size = 0;
-        sentinel.next = sentinel;
         sentinel.prev = sentinel;
+        sentinel.next = sentinel;
     }
 
     public static void main(String[] args) {
