@@ -1,7 +1,5 @@
 package lecture6;
 
-import java.util.Arrays;
-
 /* Array-based list
 * INVARIANTS of AList:
 * addLast: the next item we want to add, will go to position 'size';
