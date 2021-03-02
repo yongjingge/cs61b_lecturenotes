@@ -8,6 +8,8 @@ import java.util.Arrays;
 * 底层通过数组实现，并且是循环数组，即数组中任意index可以视为起点/终点
 * nextFirst指向下一个可以插入元素的起点位置，即addFirst的时候，从nextFirst位置插入，并且前移nextFirst
 * nextLast指向下一个可以插入元素的终点位置，即addLast的时候，从nextLast位置插入，并且后移nextLast
+*
+* 通过循环数组实现双向队列
 * */
 public class AD<T> {
     private T[] items;
