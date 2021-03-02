@@ -146,7 +146,18 @@ public class AD<T> {
     }
 
     public void printDeque() {
+        /* may not print from the first item, and may include nulls */
         System.out.println(Arrays.toString(items));
+    }
+
+    public void printFromFirst() {
+        if (isEmpty()) {
+            return;
+        }
+        for (int i = plusOne(nextFirst); i != nextLast; i = plusOne(i)) {
+            System.out.print(items[i] + " ");
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -174,6 +185,10 @@ public class AD<T> {
         a1.addFirst(19);
         System.out.println(a1.removeLast());
         a1.printDeque();
+        System.out.println("Print from the first, the queue is ");
+        a1.printFromFirst();
+        System.out.println("The item in index0 is " + a1.get(0));
+        System.out.println("The item in index2 is " + a1.get(2));
         System.out.println("The first item is at index " + a1.plusOne(a1.nextFirst));
         System.out.println("The last item is at index " + a1.minusOne(a1.nextLast));
     }
