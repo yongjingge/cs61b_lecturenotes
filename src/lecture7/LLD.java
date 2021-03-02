@@ -5,6 +5,7 @@ package lecture7;
 * - implemented in a circular way
 * Double-ended queues are sequence of containers with dynamic size
 * 双向链表 理解：双向链表的插入/删除需要修改两次指针prev/next
+* 通过双向链表实现双向队列结构
 *  */
 public class LLD<T> {
 
