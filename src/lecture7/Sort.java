@@ -33,6 +33,7 @@ public class Sort {
 
     /* a helper method to conduct recursion */
     public static void sort(String[] s, int start) {
+        /* important: base case */
         if (start == s.length) {
             return;
         }
