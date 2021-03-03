@@ -58,22 +58,53 @@ public class SLList04<Stuff> {
         return size;
     }
 
-    @Override
-    public String toString() {
-        return first + " ";
+    public Stuff removeLast() {
+        size -= 1;
+        if (first == null) {
+            return null;
+        }
+        StuffNode p = first;
+        /* walk through to the previous one of the last item
+        * this is important, because if we are nulling out the deleted item, we need to access the previous item. */
+        while (p.next.next != null) {
+            p = p.next;
+        }
+        /* now p is at the last.prev position */
+        Stuff removed = p.next.item;
+        p.next = null;
+        return removed;
+    }
+
+    public void printSLList() {
+        if (first == null) {
+            return;
+        }
+        StuffNode p = first;
+        while (p != null) {
+            System.out.print(p.item + " ");
+            p = p.next;
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
         SLList04<String> L = new SLList04<>();
         L.addLast("thugs");
         L.addFirst("head");
-        System.out.println(L.toString());
+        L.printSLList();
         System.out.println(L.size());
 
         SLList04<Integer> Q = new SLList04<>();
+        Q.printSLList();
         Q.addLast(11);
         Q.addFirst(15);
-        System.out.println(Q.toString());
-        System.out.println(Q.size());
+        Q.addLast(13);
+        System.out.print("Before removing the last item, the SLList is ");
+        Q.printSLList();
+        System.out.println("Before removing the last item, the size is " + Q.size());
+        Q.removeLast();
+        System.out.print("After removing the last item, the SLList is ");
+        Q.printSLList();
+        System.out.println("After removing the last item, the size is " + Q.size());
     }
 }
