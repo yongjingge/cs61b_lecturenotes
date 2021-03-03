@@ -58,14 +58,15 @@ public class SLList04<Stuff> {
         return size;
     }
 
-    public Stuff removeLast() {
+    protected Stuff removeLast() {
         size -= 1;
         if (first == null) {
             return null;
         }
         StuffNode p = first;
         /* walk through to the previous one of the last item
-        * this is important, because if we are nulling out the deleted item, we need to access the previous item. */
+        * this is important, because if we are nulling out the deleted item, we need to access the previous item,
+        * and remove its next pointer by making it point to null */
         while (p.next.next != null) {
             p = p.next;
         }
