@@ -1,6 +1,7 @@
 package lecture10;
 
 /* implements a more commonly used built-in Comparable interface */
+
 public class Dog1 implements Comparable<Dog1> {
 
     private String name;
