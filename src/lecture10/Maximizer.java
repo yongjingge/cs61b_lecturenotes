@@ -5,7 +5,7 @@ public class Maximizer {
 
     public static OurComparable max(OurComparable[] os) {
         int maxIndex = 0;
-        for (int i = 0; i < os.length; i += 1) {
+        for (int i = 1; i < os.length; i += 1) {
             int cmp = os[i].compareTo(os[maxIndex]);
             if (cmp > 0) {
                 maxIndex = i;
