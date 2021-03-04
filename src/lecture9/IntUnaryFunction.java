@@ -1,2 +1,6 @@
-package lecture9;public interface IntUnaryFunction {
+package lecture9;
+
+/* demonstrating the Higher Order Function */
+public interface IntUnaryFunction {
+    int apply(int x);
 }
