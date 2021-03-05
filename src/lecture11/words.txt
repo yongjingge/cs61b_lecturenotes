@@ -1,0 +1,1 @@
+this this is a word txt file used to test the Word Dealer class which implements interfaces that extend the Collection interface.
