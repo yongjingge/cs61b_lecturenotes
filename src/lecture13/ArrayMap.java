@@ -3,6 +3,7 @@ package lecture13;
 import java.util.ArrayList;
 import java.util.List;
 
+/* K,V -- Generic types */
 public class ArrayMap<K, V> implements Map61B<K, V> {
 
     private K[] keys;

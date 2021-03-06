@@ -2,7 +2,7 @@ package lecture13;
 
 import java.util.List;
 
-/* demonstrating Generic type */
+/* Demonstrating Generic type */
 public interface Map61B<K, V> {
     /* Returns true if map contains a mapping for the specified key */
     boolean containsKey(K key);
