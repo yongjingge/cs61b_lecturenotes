@@ -35,10 +35,15 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
     @Override
     public V get(K key) {
         int index = keyIndex(key);
-        if (index > -1) {
-            return values[index];
+        /* Exception Handler */
+        if (index == -1) {
+            throw new IllegalArgumentException("The key provided " + key + " was not in the ArrayMap.");
         }
-        return null;
+        return values[index];
+//        if (index > -1) {
+//            return values[index];
+//        }
+//        return null;
     }
 
     @Override
@@ -80,5 +85,7 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
         System.out.println(map.containsKey("cat"));
         System.out.println(map.get("fish"));
         System.out.println(map.getKeys().indexOf("dog"));
+
+        System.out.println(map.get("dolphin"));
     }
 }
