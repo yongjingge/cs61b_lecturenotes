@@ -1,26 +1,26 @@
 package lecture14;
 
 import lecture13.Map61B;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-/* ArrayMap with KeyIterator */
-public class ArrayMap<K, V> implements Map61B<K, V> {
-
+public class AdvancedArrayMap<K, V> implements Map61B<K, V>, Iterable<K> {
     private K[] keys;
     private V[] values;
     private int size;
 
-    public ArrayMap() {
+    public AdvancedArrayMap() {
         keys = (K[]) new Object[100];
         values = (V[]) new Object[100];
         size = 0;
     }
 
     /* create a KeyIterator class (a Nested Class) that allows us to iterate through the keys of an ArrayMap.
-    * the Iterator should have 'next()' and 'hasNext()' methods.
-    * KeyIterator is not STATIC, because we need to iterate keys of a specific ArrayMap instance! */
-    public class KeyIterator {
+     * the Iterator should have 'next()' and 'hasNext()' methods.
+     * KeyIterator is not STATIC, because we need to iterate keys of a specific ArrayMap instance! */
+    public class KeyIterator implements Iterator<K> {
         private int pos;
         public KeyIterator() {
             pos = 0;
@@ -36,9 +36,18 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
     }
 
     /* we can make the initialization of KeyIterator very much like the list.iterator() method */
-    public KeyIterator getKeyIterator() {
+    @Override
+    public Iterator<K> iterator() {
         return new KeyIterator();
     }
+
+    /* we can also avoiding making our own KeyIterator and use the List's iterator */
+    @Override
+    public Iterator<K> iterator() {
+        List<K> keyslist = getKeys();
+        return keyslist.iterator();
+    }
+
 
     /* helper method to get a specified key's index if exists,
      * if not, return -1 */
@@ -99,5 +108,4 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
         }
         return res;
     }
-
 }

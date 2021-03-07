@@ -24,5 +24,18 @@ public class IteratorDemo2 {
         while (keyIterator2.hasNext()) {
             System.out.println(keyIterator2.next());
         }
+
+        /* using for-each loop on ArrayMap,
+        * ArrayMap<K, V> must implement Iterable<K> first.
+        * use AdvancedArrayMap to demonstrate this. */
+        AdvancedArrayMap<String, Integer> admap = new AdvancedArrayMap<>();
+        admap.put("fish", 8);
+        admap.put("cat", 1);
+        admap.put("dog", 22);
+
+        System.out.println("This is AdvancedArrayMap instance: ");
+        for (String s : admap) {
+            System.out.println(s);
+        }
     }
 }
