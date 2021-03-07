@@ -18,7 +18,7 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
         size = 0;
     }
 
-    /* create a KeyIterator class (a nested class) that allows us to iterate through the keys of an ArrayMap.
+    /* create a KeyIterator class (a Nested Class) that allows us to iterate through the keys of an ArrayMap.
     * the Iterator should have 'next()' and 'hasNext()' methods.
     * KeyIterator is not STATIC, because we need to iterate keys of a specific ArrayMap instance! */
     public class KeyIterator {

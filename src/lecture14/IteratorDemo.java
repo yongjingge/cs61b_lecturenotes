@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/* using iterator() method to iterate a List */
+/* using iterator() method to iterate a List.
+* List has an iterator method,
+* Iterator has 'hasNext()' and 'next()' methods. */
 public class IteratorDemo {
 
     public static void main(String[] args) {

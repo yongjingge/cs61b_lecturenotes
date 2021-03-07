@@ -1,5 +1,6 @@
 package lecture14;
 
+/* KeyIterator has to be initialized through an instance of ArrayMap! */
 public class IteratorDemo2 {
 
     public static void main(String[] args) {
