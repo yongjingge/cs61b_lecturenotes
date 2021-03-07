@@ -3,7 +3,7 @@ package lecture14;
 import java.io.IOException;
 
 /* Unchecked Exception Demo
-* code throws exceptions and the compiler will be fine with that. */
+ * code throws exceptions and the compiler will be fine with that. */
 public class UncheckedExceptionDemo {
     public static void main(String[] args) {
         String today = "Thursday";
