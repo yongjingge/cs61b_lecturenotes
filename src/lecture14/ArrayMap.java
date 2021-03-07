@@ -36,6 +36,11 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
         }
     }
 
+    /* we can make the initialization of KeyIterator very much like the list.iterator() method */
+    public KeyIterator getKeyIterator() {
+        return new KeyIterator();
+    }
+
     /* helper method to get a specified key's index if exists,
      * if not, return -1 */
     private int keyIndex(K key) {

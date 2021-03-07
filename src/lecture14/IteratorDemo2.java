@@ -12,9 +12,17 @@ public class IteratorDemo2 {
         /* KeyIterator is a nested class in ArrayMap.
         * it is not static.
         * we need to instantiate a KeyIterator through an ArrayMap instance. */
-        ArrayMap.KeyIterator keyIterator = map.new KeyIterator();
-        while (keyIterator.hasNext()) {
-            System.out.println(keyIterator.next());
+        ArrayMap.KeyIterator keyIterator1 = map.new KeyIterator();
+
+        /* we can make the initialization of KeyIterator very much like the List.iterator() method */
+        ArrayMap.KeyIterator keyIterator2 = map.getKeyIterator();
+
+        while (keyIterator1.hasNext()) {
+            System.out.println(keyIterator1.next());
+        }
+
+        while (keyIterator2.hasNext()) {
+            System.out.println(keyIterator2.next());
         }
     }
 }
