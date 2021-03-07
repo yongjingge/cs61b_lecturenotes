@@ -36,10 +36,10 @@ public class AdvancedArrayMap<K, V> implements Map61B<K, V>, Iterable<K> {
     }
 
     /* we can make the initialization of KeyIterator very much like the list.iterator() method */
-//    @Override
-//    public Iterator<K> iterator() {
-//        return new KeyIterator();
-//    }
+    @Override
+    public Iterator<K> iterator() {
+        return new KeyIterator();
+    }
 
     /* we can also avoiding making our own KeyIterator and use the List's iterator */
     @Override
