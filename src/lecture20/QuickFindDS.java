@@ -1,6 +1,7 @@
 package lecture20;
 
-/* Using an Array to track sets */
+/* Approach One:
+* Using an Array to track sets */
 public class QuickFindDS implements DisjointSets {
     private int[] track;
 
