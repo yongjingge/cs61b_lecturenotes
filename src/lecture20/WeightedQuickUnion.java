@@ -3,7 +3,8 @@ package lecture20;
 /* Approach Three:
 * modify QuickUnion to avoid tall trees by
 * tracking tree size using an array,
-* and always link root of smaller tree to larger tree. */
+* and always link root of smaller tree to larger tree.
+* Weight is based on the size of each subset. */
 public class WeightedQuickUnion implements DisjointSets {
     private int[] parents;
     /* track number of elements in subtree rooted at i. */
