@@ -5,7 +5,8 @@ import edu.princeton.cs.algs4.Queue;
 import java.util.NoSuchElementException;
 
 /* Binary Search Tree Implementation
-* @Source https://algs4.cs.princeton.edu/32bst/BST.java.html */
+* @source https://algs4.cs.princeton.edu/32bst/BST.java.html
+* */
 public class BST<K extends Comparable<K>, V> {
     /* root of BST */
     private Node root;
