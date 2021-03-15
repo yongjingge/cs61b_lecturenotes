@@ -56,7 +56,9 @@ public class BST<K extends Comparable<K>, V> {
 
     /* returns the value associated with the given key */
     public V get(K key) {
-        return get(root, key); // get(Node x, K k) as helper method
+        /* get(Node x, K key) is the helper method,
+        * set Node x as argument to conduct binary search */
+        return get(root, key);
     }
     /* using Binary Search to find the given key, then return its value */
     private V get(Node x, K key) {
@@ -88,7 +90,8 @@ public class BST<K extends Comparable<K>, V> {
             delete(key);
             return;
         }
-        root = put(root, key, value); // put(Node x, K k, V v) as helper method, will return Node
+        /* put(Node x, K key, V value) is the helper method */
+        root = put(root, key, value);
     }
     private Node put(Node x, K key, V value) {
         if (x == null) {
@@ -112,7 +115,8 @@ public class BST<K extends Comparable<K>, V> {
         if (key == null) {
             throw new IllegalArgumentException("calls delete() with a null key");
         }
-        root = delete(root, key); // delete(Node x, K k) as helper method
+        /* delete(Node x, K key) is the helper method */
+        root = delete(root, key);
     }
     private Node delete(Node x, K key) {
         if (x == null) {
@@ -124,7 +128,7 @@ public class BST<K extends Comparable<K>, V> {
         } else if (cmp < 0) {
             x.left = delete(x.left, key);
         } else {
-            // deleting the Node itself: now x.key == key
+            /* deletion key equals current Node.key */
             if (x.right == null) {
                 return x.left;
             }
@@ -133,9 +137,15 @@ public class BST<K extends Comparable<K>, V> {
             }
             /* Node x has both left and right children */
             Node p = x;
-            x = min(p.right); // setting either the largest from leftsub or the smallest from rightsub as the new root
+            x = min(p.right); // setting either the largest from left-sub or the smallest from right-sub as the new root
             x.right = deleteMin(p.right);
             x.left = p.left;
+            /**
+             * if we set the largest from left-sub, the sudo code will be like:
+             * x = max(p.left);
+             * x.left = deleteMax(p.left);
+             * x.right = p.right;
+             */
         }
         x.size = 1 + size(x.left) + size(x.right);
         return x;
