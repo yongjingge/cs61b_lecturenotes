@@ -41,6 +41,8 @@ public class LevelOrderTraversal {
                 case LEVEL_ORDER_TOP_DOWN:
                     res.add(sub);
                     break;
+                default:
+                    return null;
             }
         }
         return res;

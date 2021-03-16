@@ -140,8 +140,16 @@ public class BinaryTreeG<T> {
         System.out.println(LevelOrderTraversal.levelOrder(treeStr, TreeTraversalOrder.LEVEL_ORDER_TOP_DOWN));
 
         System.out.println("Conduct a DFS-based level order traversal:");
-        LevelOrderTraversal.levelOrderWithDFS(treeStr);
         System.out.println(LevelOrderTraversal.levelOrderWithDFS(treeStr));
+
+        System.out.println("Conduct a PreOrder Traversal:");
+        System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.PRE_ORDER));
+
+        System.out.println("Conduct an InOrder Traversal:");
+        System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.IN_ORDER));
+
+        System.out.println("Conduct a PostOrder Traversal:");
+        System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.POST_ORDER));
     }
 
 }
