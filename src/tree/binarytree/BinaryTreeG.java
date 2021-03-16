@@ -136,10 +136,8 @@ public class BinaryTreeG<T> {
 
         System.out.println("Conduct a bottom-up level order traversal:");
         System.out.println(LevelOrderTraversal.levelOrder(treeStr, TreeTraversalOrder.LEVEL_ORDER_BOTTOM_UP));
-        //System.out.println(LevelOrderTraversal.levelOrderBottomUp(treeStr));
         System.out.println("Conduct a top-down level order traversal:");
         System.out.println(LevelOrderTraversal.levelOrder(treeStr, TreeTraversalOrder.LEVEL_ORDER_TOP_DOWN));
-        //System.out.println(LevelOrderTraversal.levelOrderTopDown(treeStr));
     }
 
 }
