@@ -45,4 +45,25 @@ public class LevelOrderTraversal {
         return res;
     }
 
+    public static <T> List<List<T>> levelOrderWithDFS(BinaryTreeG<T> tree) {
+        List<List<T>> res = new LinkedList<>();
+        BinaryTreeG.Node<T> root = tree.getRoot();
+        levelHelper(res, root, 0);
+        return res;
+    }
+    private static <T> void levelHelper(List<List<T>> res, BinaryTreeG.Node<T> node, int depth) {
+        if (node == null) {
+            return;
+        }
+        if (depth == res.size()) {
+            res.add(new LinkedList<>());
+        }
+
+        /* initially add root.data to res, depth is set to 0 */
+        res.get(depth).add(node.getData());
+
+        /* implement pre-order traversal to achieve level order */
+        levelHelper(res, node.getLeft(), depth + 1);
+        levelHelper(res, node.getRight(), depth + 1);
+    }
 }
