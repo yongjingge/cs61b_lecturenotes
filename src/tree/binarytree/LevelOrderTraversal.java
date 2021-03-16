@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Queue;
 
 /* Level Order Traversal of a given binary tree.
-* Following BFS.
-* Provide different solutions. */
+* Following BFS(Breadth First Search),
+* normally using Queue as its preferred data structure.
+* Different solutions provided. */
 public class LevelOrderTraversal {
 
     /* Queue-based level order traversal,
