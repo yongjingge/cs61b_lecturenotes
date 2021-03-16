@@ -55,6 +55,8 @@ public class LevelOrderTraversal {
         if (node == null) {
             return;
         }
+        /* if this is the first node we encountered at current level,
+        * we create a new list to store data. */
         if (depth == res.size()) {
             res.add(new LinkedList<>());
         }
