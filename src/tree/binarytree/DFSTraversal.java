@@ -30,11 +30,13 @@ public class DFSTraversal {
 
     /* InOrder Morris Traversal: left - root - right */
     public static <T> List<T> inOrderMorris(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         ArrayList<T> res = new ArrayList<>();
         BinaryTreeG.Node<T> cur = tree.getRoot();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         while (cur != null) {
             if (cur.getLeft() == null) {
                 res.add(cur.getData());
@@ -66,11 +68,13 @@ public class DFSTraversal {
 
     /* PreOrder Morris Traversal: root - left - right */
     public static <T> List<T> preOrderMorris(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         ArrayList<T> res = new ArrayList<>();
         BinaryTreeG.Node<T> cur = tree.getRoot();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         while (cur != null) {
             if (cur.getLeft() == null) {
                 res.add(cur.getData());
@@ -97,11 +101,13 @@ public class DFSTraversal {
 
     /* PostOrder Morris Traversal */
     public static <T> List<T> postOrderMorris(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         ArrayList<T> res = new ArrayList<>();
         BinaryTreeG.Node<T> root = tree.getRoot();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         BinaryTreeG.Node<T> dummy = new BinaryTreeG.Node<>();
         dummy.setLeft(root);
         BinaryTreeG.Node<T> cur = dummy;
@@ -161,10 +167,11 @@ public class DFSTraversal {
 
     /* PreOrder Traversal: root - left - right */
     public static <T> List<T> preOrderTraversalRe(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
         preOrderHelper(tree.getRoot(), res);
         return res;
     }
@@ -179,10 +186,12 @@ public class DFSTraversal {
 
     /* InOrder Traversal: left - root - right */
     public static <T> List<T> inOrderTraversalRe(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         inOrderHelper(tree.getRoot(), res);
         return res;
     }
@@ -197,10 +206,12 @@ public class DFSTraversal {
 
     /* PostOrder Traversal: left - right - root */
     public static <T> List<T> postOrderTraversalRe(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         postOrderHelper(tree.getRoot(), res);
         return res;
     }
@@ -230,10 +241,12 @@ public class DFSTraversal {
 
     /* Non-recursive PreOrder Traversal: root - left - right */
     public static <T> List<T> preOrderTraversalIt(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
         BinaryTreeG.Node<T> root = tree.getRoot();
 
@@ -253,10 +266,12 @@ public class DFSTraversal {
 
     /* Non-recursive InOrder Traversal: left - root - right */
     public static <T> List<T> inOrderTraversalIt(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
+
         Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
         BinaryTreeG.Node<T> root = tree.getRoot();
 
@@ -284,10 +299,11 @@ public class DFSTraversal {
     /* Non-recursive PostOrder Traversal: left - right - root,
     * very similar to PreOrder Traversal except the order of adding items into list. */
     public static <T> List<T> postOrderTraversalIt(BinaryTreeG<T> tree) {
-        if (tree == null || tree.getRoot() == null) {
-            return null;
-        }
+
         List<T> res = new LinkedList<>();
+        if (tree == null || tree.getRoot() == null) {
+            return res;
+        }
         Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
         BinaryTreeG.Node<T> root = tree.getRoot();
 
