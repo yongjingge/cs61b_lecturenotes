@@ -1,7 +1,6 @@
 package tree.binarytree;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /* DFS Tree Traversals,
 * including -- inorder
@@ -39,8 +38,8 @@ public class DFSTraversal {
             return;
         }
         res.add(node.getData());
-        preOrderHelper(node.getLeft(), res);
-        preOrderHelper(node.getRight(), res);
+        preOrderHelper(node.getLeft(), res); // will conduct preorder traversal on current node's left subtree, if not null
+        preOrderHelper(node.getRight(), res); // will conduct preorder traversal on current node's right subtree, if not null
     }
 
     /* InOrder Traversal: left - root - right */
@@ -78,4 +77,54 @@ public class DFSTraversal {
         postOrderHelper(node.getRight(), res);
         res.add(node.getData());
     }
+
+    /* return traversal result for a given traversal order using iteration!
+    * Stack is the preferred data structure. */
+    public static <T> List<T> traverseIteration(BinaryTreeG<T> tree, TreeTraversalOrder order) {
+        switch (order) {
+            case IN_ORDER:
+                return inOrderTraversalIt(tree);
+            case PRE_ORDER:
+                return preOrderTraversalIt(tree);
+            case POST_ORDER:
+                return postOrderTraversalIt(tree);
+            default:
+                return null;
+        }
+    }
+
+    /* Non-recursive PreOrder Traversal: root - left - right */
+    public static <T> List<T> preOrderTraversalIt(BinaryTreeG<T> tree) {
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        List<T> res = new LinkedList<>();
+        Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
+        BinaryTreeG.Node<T> root = tree.getRoot();
+
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            BinaryTreeG.Node<T> node = stack.poll();
+            res.add(node.getData());
+            if (node.getRight() != null) {
+                stack.push(node.getRight());
+            }
+            if (node.getLeft() != null) {
+                stack.push(node.getLeft());
+            }
+        }
+        return res;
+    }
+
+    /* Non-recursive InOrder Traversal: left - root - right */
+    public static <T> List<T> inOrderTraversalIt(BinaryTreeG<T> tree) {
+        return null;
+    }
+
+    /* Non-recursive PostOrder Traversal: left - right - root */
+    public static <T> List<T> postOrderTraversalIt(BinaryTreeG<T> tree) {
+        return null;
+    }
+
+
 }
