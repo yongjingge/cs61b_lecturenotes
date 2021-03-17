@@ -2,13 +2,148 @@ package tree.binarytree;
 
 import java.util.*;
 
-/* DFS Tree Traversals,
+/* DFS Tree Traversals
 * including -- inorder
 *           -- preorder
 *           -- postorder traversals.
-* Recursive and non-recursive solutions provided.
+* Recursive and non-recursive solutions are provided.
+* Solutions for Morris Traversals are provided.
 * Stack data structure is preferred by its non-recursive solutions. */
 public class DFSTraversal {
+
+    /* Morris Traversal
+    * -- time complexity: O(N)
+    * -- space complexity: O(1)
+    *  */
+    public static <T> List<T> morrisTraversal(BinaryTreeG<T> tree, TreeTraversalOrder order) {
+        switch (order) {
+            case IN_ORDER:
+                return inOrderMorris(tree);
+            case PRE_ORDER:
+                return preOrderMorris(tree);
+            case POST_ORDER:
+                return postOrderMorris(tree);
+            default:
+                return null;
+        }
+    }
+
+    /* InOrder Morris Traversal: left - root - right */
+    public static <T> List<T> inOrderMorris(BinaryTreeG<T> tree) {
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        ArrayList<T> res = new ArrayList<>();
+        BinaryTreeG.Node<T> cur = tree.getRoot();
+        while (cur != null) {
+            if (cur.getLeft() == null) {
+                res.add(cur.getData());
+                cur = cur.getRight();
+            } else {
+                /* if cur's left subtree is not null */
+                BinaryTreeG.Node<T> tmp = cur.getLeft();
+                /* we need to find the rightmost/largest node in the left subtree,
+                * namely the 'predecessor' node! */
+                while (tmp.getRight() != null && tmp.getRight() != cur) {
+                    tmp = tmp.getRight();
+                }
+
+                /* now 'tmp' is the rightmost node in cur's left subtree */
+                if (tmp.getRight() == null) {
+                    /* set predecessor node's right sub to point to cur */
+                    tmp.setRight(cur);
+                    cur = cur.getLeft();
+                } else {
+                    /* predecessor's right is already pointing to cur */
+                    tmp.setRight(null);
+                    res.add(cur.getData());
+                    cur = cur.getRight();
+                }
+            }
+        }
+        return res;
+    }
+
+    /* PreOrder Morris Traversal: root - left - right */
+    public static <T> List<T> preOrderMorris(BinaryTreeG<T> tree) {
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        ArrayList<T> res = new ArrayList<>();
+        BinaryTreeG.Node<T> cur = tree.getRoot();
+        while (cur != null) {
+            if (cur.getLeft() == null) {
+                res.add(cur.getData());
+                cur = cur.getRight();
+            } else {
+                /* if cur's left subtree is not null */
+                BinaryTreeG.Node<T> tmp = cur.getLeft();
+                while (tmp.getRight() != null && tmp.getRight() != cur) {
+                    tmp = tmp.getRight();
+                }
+
+                if (tmp.getRight() == null) {
+                    res.add(cur.getData());
+                    tmp.setRight(cur);
+                    cur = cur.getLeft();
+                } else {
+                    tmp.setRight(null);
+                    cur = cur.getRight();
+                }
+            }
+        }
+        return res;
+    }
+
+    /* PostOrder Morris Traversal */
+    public static <T> List<T> postOrderMorris(BinaryTreeG<T> tree) {
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        ArrayList<T> res = new ArrayList<>();
+        BinaryTreeG.Node<T> root = tree.getRoot();
+        BinaryTreeG.Node<T> dummy = new BinaryTreeG.Node<>();
+        dummy.setLeft(root);
+        BinaryTreeG.Node<T> cur = dummy;
+
+        while (cur != null) {
+            if (cur.getLeft() == null) {
+                cur = cur.getRight();
+            } else {
+                BinaryTreeG.Node<T> tmp = cur.getLeft();
+                while (tmp.getRight() != null && tmp.getRight() != cur) {
+                    tmp = tmp.getRight();
+                }
+
+                if (tmp.getRight() == null) {
+                    tmp.setRight(cur);
+                    cur = cur.getLeft();
+                } else {
+                    tmp.setRight(null);
+                    reverse(cur.getLeft(), res);
+                    cur = cur.getRight();
+                }
+            }
+        }
+        return res;
+    }
+
+    private static <T> void reverse(BinaryTreeG.Node<T> node, ArrayList<T> res) {
+        int start = res.size();
+        while (node != null) {
+            res.add(node.getData());
+            node = node.getRight();
+        }
+        int i = start;
+        int j = res.size() - 1;
+        while (i < j) {
+            T t = res.get(i);
+            res.set(i, res.get(j));
+            res.set(j, t);
+            i += 1;
+            j -= 1;
+        }
+    }
 
     /* return traversal result for a given traversal order using recursion! */
     public static <T> List<T> traverseRecursion(BinaryTreeG<T> tree, TreeTraversalOrder order) {

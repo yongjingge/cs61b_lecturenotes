@@ -23,6 +23,9 @@ public class BinaryTreeG<T> {
             this.right = null;
         }
 
+        public Node() {
+        }
+
         public T getData() {
             return data;
         }
@@ -33,6 +36,18 @@ public class BinaryTreeG<T> {
 
         public Node<T> getRight() {
             return right;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public void setLeft(Node<T> left) {
+            this.left = left;
+        }
+
+        public void setRight(Node<T> right) {
+            this.right = right;
         }
     }
 
@@ -148,18 +163,24 @@ public class BinaryTreeG<T> {
         System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.PRE_ORDER));
         System.out.println("Conduct a PreOrder Traversal using iteration:");
         System.out.println(DFSTraversal.traverseIteration(treeStr, TreeTraversalOrder.PRE_ORDER));
+        System.out.println("Conduct a PreOrder Morris Traversal:");
+        System.out.println(DFSTraversal.morrisTraversal(treeStr, TreeTraversalOrder.PRE_ORDER));
 
         System.out.println("----------------DFS InOrder Traversal----------------");
         System.out.println("Conduct an InOrder Traversal using recursion:");
         System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.IN_ORDER));
         System.out.println("Conduct an InOrder Traversal using iteration:");
         System.out.println(DFSTraversal.traverseIteration(treeStr, TreeTraversalOrder.IN_ORDER));
+        System.out.println("Conduct an InOrder Morris Traversal:");
+        System.out.println(DFSTraversal.morrisTraversal(treeStr, TreeTraversalOrder.IN_ORDER));
 
         System.out.println("----------------DFS PostOrder Traversal----------------");
         System.out.println("Conduct a PostOrder Traversal using recursion:");
         System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.POST_ORDER));
         System.out.println("Conduct a PostOrder Traversal using iteration:");
         System.out.println(DFSTraversal.traverseIteration(treeStr, TreeTraversalOrder.POST_ORDER));
+        System.out.println("Conduct a PostOrder Morris Traversal:");
+        System.out.println(DFSTraversal.morrisTraversal(treeStr, TreeTraversalOrder.POST_ORDER));
     }
 
 }
