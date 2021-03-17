@@ -152,10 +152,14 @@ public class BinaryTreeG<T> {
         System.out.println("----------------DFS InOrder Traversal----------------");
         System.out.println("Conduct an InOrder Traversal using recursion:");
         System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.IN_ORDER));
+        System.out.println("Conduct an InOrder Traversal using iteration:");
+        System.out.println(DFSTraversal.traverseIteration(treeStr, TreeTraversalOrder.IN_ORDER));
 
         System.out.println("----------------DFS PostOrder Traversal----------------");
         System.out.println("Conduct a PostOrder Traversal using recursion:");
         System.out.println(DFSTraversal.traverseRecursion(treeStr, TreeTraversalOrder.POST_ORDER));
+        System.out.println("Conduct a PostOrder Traversal using iteration:");
+        System.out.println(DFSTraversal.traverseIteration(treeStr, TreeTraversalOrder.POST_ORDER));
     }
 
 }

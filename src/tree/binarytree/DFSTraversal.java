@@ -118,13 +118,58 @@ public class DFSTraversal {
 
     /* Non-recursive InOrder Traversal: left - root - right */
     public static <T> List<T> inOrderTraversalIt(BinaryTreeG<T> tree) {
-        return null;
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        List<T> res = new LinkedList<>();
+        Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
+        BinaryTreeG.Node<T> root = tree.getRoot();
+
+        while (root != null || !stack.isEmpty()) {
+            /* first, add all left subtree nodes into stack.
+            * when root == null, we have reached the left most leaf node of the tree. */
+            if (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            } else {
+                /* when root == null, we have traversed all left subtree nodes. */
+                root = stack.poll(); // poll out the leftmost node at the top of the stack
+                res.add(root.getData()); // add its data to res
+                /* current root node is the leftmost node we pushed into stack before,
+                * we then check its right subtree by referencing it to the right subtree node.
+                * if the right subtree is null, we enter this 'else' condition again;
+                * if not null, we will push root into stack (record its role as a root node),
+                * and check its left subtree nodes. */
+                root = root.getRight();
+            }
+        }
+        return res;
     }
 
-    /* Non-recursive PostOrder Traversal: left - right - root */
+    /* Non-recursive PostOrder Traversal: left - right - root,
+    * very similar to PreOrder Traversal except the order of adding items into list. */
     public static <T> List<T> postOrderTraversalIt(BinaryTreeG<T> tree) {
-        return null;
-    }
+        if (tree == null || tree.getRoot() == null) {
+            return null;
+        }
+        List<T> res = new LinkedList<>();
+        Deque<BinaryTreeG.Node<T>> stack = new LinkedList<>();
+        BinaryTreeG.Node<T> root = tree.getRoot();
 
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            BinaryTreeG.Node<T> node = stack.poll();
+            res.add(0, node.getData());
+            /* we need to follow a 'left then right' order to push nodes into stack,
+            * because we are adding values into res backwards. */
+            if (node.getLeft() != null) {
+                stack.push(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                stack.push(node.getRight());
+            }
+        }
+        return res;
+    }
 
 }
