@@ -123,17 +123,28 @@ public class BinaryTreeG<T> {
     }
 
     public static void main(String[] args) {
-        BinaryTreeG<Integer> treeInt = new BinaryTreeG<>(11);
-        treeInt.root.left = new Node<>(12, 1);
-        treeInt.root.right = new Node<>(13, 1);
-        treeInt.root.left.left = new Node<>(15, 1);
-        treeInt.root.left.right = new Node<>(16, 1);
-        treeInt.root.left.left.left = new Node<>(18, 1);
-        treeInt.root.left.left.right = new Node<>(22, 1);
+        BinaryTreeG<Integer> treeInt = new BinaryTreeG<>(6);
+        treeInt.root.left = new Node<>(4, 1);
+        treeInt.root.right = new Node<>(9, 1);
+        treeInt.root.left.left = new Node<>(2, 1);
+        treeInt.root.left.right = new Node<>(5, 1);
+        treeInt.root.left.left.left = new Node<>(1, 1);
+        treeInt.root.left.left.right = new Node<>(3, 1);
+        treeInt.root.right.left = new Node<>(7, 1);
+        treeInt.root.right.right = new Node<>(10, 1);
+        treeInt.root.right.left.right = new Node<>(8, 1);
         treeInt.printTree();
         System.out.println();
         System.out.println("Total size of this tree is " + treeInt.size());
         System.out.println("The max depth of this tree is " + treeInt.depth());
+
+        System.out.println("----------------DFS PreOrder Traversal----------------");
+        System.out.println("Conduct a PreOrder Traversal using recursion:");
+        System.out.println(DFSTraversal.traverseRecursion(treeInt, TreeTraversalOrder.PRE_ORDER));
+        System.out.println("Conduct a PreOrder Traversal using iteration:");
+        System.out.println(DFSTraversal.traverseIteration(treeInt, TreeTraversalOrder.PRE_ORDER));
+        System.out.println("Conduct a PreOrder Morris Traversal:");
+        System.out.println(DFSTraversal.morrisTraversal(treeInt, TreeTraversalOrder.PRE_ORDER));
 
         BinaryTreeG<String> treeStr = new BinaryTreeG<>("root");
         treeStr.root.left = new Node<>("this", 1);
