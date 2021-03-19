@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class PascalTriangle {
     public static int[][] pascalTriangle(int n) {
         /* 2D Array: an array of references to 1D Arrays */
-        int[][] pt = new int[n][]; // index from 0 to n - 1
+        int[][] pt = new int[n][]; // index from 0 to (n - 1)
         for (int i = 0; i < n; i += 1) {
             pt[i] = new int[i + 1]; // row i will have (i + 1) items, index from 0 to i
             pt[i][0] = 1;
