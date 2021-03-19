@@ -2,7 +2,7 @@ package lecture5;
 
 import java.util.Arrays;
 
-/* from CS61B 2008 Lecture5 Iteration and Arrays */
+/* from CS61B 2006 Lecture5 Iteration and Arrays */
 public class PascalTriangle {
     public static int[][] pascalTriangle(int n) {
         /* 2D Array: an array of references to 1D Arrays */
