@@ -8,7 +8,9 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /* A symbol table implemented with a separate-chaining hash-table
-* @source https://algs4.cs.princeton.edu/34hash/SeparateChainingHashST.java.html */
+* @source https://algs4.cs.princeton.edu/34hash/SeparateChainingHashST.java.html
+* Separate chaining: also called 'external chaining', known as an Open Hashing strategy.
+* */
 public class SeparateChainingHash<Key, Value> {
 
     private static final int INIT_CAPACITY = 4;
@@ -48,7 +50,8 @@ public class SeparateChainingHash<Key, Value> {
     }
 
     /* Hash Function for Ks,
-    * Returns value between 0 and m-1 */
+    * Returns value between 0 and m-1,
+    * to find the bucket number. */
     private int hashKs(Key key) {
         return (key.hashCode() & 0x7fffffff) % bucket;
     }
