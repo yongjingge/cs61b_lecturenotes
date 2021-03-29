@@ -18,22 +18,22 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     }
 
     /* Returns the left child's index of the given index. */
-    private static int getLeft(int i) {
+    protected static int getLeft(int i) {
         return i * 2;
     }
 
     /* Returns the right child's index of the given index. */
-    private static int getRight(int i) {
+    protected static int getRight(int i) {
         return i * 2 + 1;
     }
 
     /* Returns the parent's index of the given index. */
-    private static int getParent(int i) {
+    protected static int getParent(int i) {
         return i / 2;
     }
 
     /* Returns the node at given index. */
-    private Node getNode(int i) {
+    protected Node getNode(int i) {
         if (! inBounds(i)) {
             return null;
         }
@@ -44,7 +44,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     * if we have 5 items in the PQ, valid indices are 1, 2, 3, 4, 5.
     * 0 is not a valid one because we put a dummy node at index 0.
     * Note that size is 5, and length of the ArrayHeap should be 6 in this case. */
-    private boolean inBounds(int i) {
+    protected boolean inBounds(int i) {
         if ((i > size) || (i < 1)) {
             return false;
         }
@@ -52,7 +52,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     }
 
     /* Swap the nodes at two indices provided. */
-    private void swap(int i, int j) {
+    protected void swap(int i, int j) {
         Node inode = getNode(i);
         Node jnode = getNode(j);
         contents[i] = jnode;
@@ -61,7 +61,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
 
     /* Returns the index of the node with smaller priority value.
     * Precondition: not both nodes are null. */
-    private int getMin(int i, int j) {
+    protected int getMin(int i, int j) {
         Node inode = getNode(i);
         Node jnode = getNode(j);
         if (inode == null) {
@@ -76,7 +76,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     }
 
     /* Throws an exception if given index is invalid. */
-    private void validateSinkSwimArg(int i) {
+    protected void validateSinkSwimArg(int i) {
         if (i < 1) {
             throw new IllegalArgumentException("Cannot sink or swim nodes with index smaller than 1.");
         }
@@ -91,7 +91,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     /* Swims the node (up) currently at given index.
     * Swam the item with its parent until it is larger than its parent.
     * MIN-HEAP property: parent should have a smaller value than its children! */
-    private void swim(int i) {
+    protected void swim(int i) {
         /* throws an exception if given index is invalid. */
         validateSinkSwimArg(i);
 
@@ -113,7 +113,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     /* Sinks the node currently at given index.
     * Swap the item with one of its child until it is smaller than both of its children.
     * Swap with the smaller child if two children are not equal, otherwise swap with arbitrary one. */
-    private void sink(int i) {
+    protected void sink(int i) {
         validateSinkSwimArg(i);
 
         int leftChild = getLeft(i);
@@ -138,7 +138,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     }
 
     /* Resizes the ArrayHeap when necessary. */
-    private void resize(int capacity) {
+    protected void resize(int capacity) {
         Node[] tmp = new ArrayHeap.Node[capacity];
         for (int i = 1; i < this.contents.length; i += 1) {
             tmp[i] = this.contents[i];
@@ -191,8 +191,18 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         return size;
     }
 
+    /* Sets the size of the heap. */
+    public void setSize(int i) {
+        size = i;
+    }
+
+    /* Getter */
+    public Node[] getContents() {
+        return contents;
+    }
+
     /* Returns true if the heap is empty. */
-    private boolean isEmpty() {
+    protected boolean isEmpty() {
         return size() == 0;
     }
 
@@ -226,8 +236,35 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         }
     }
 
+    /* Prints out the heap sideways. */
+    public String toString() {
+        return helper(1, "");
+    }
+
+    /* Recursive helper method for toString */
+    protected String helper(int index, String soFar) {
+        if (getNode(index) == null) {
+            return "";
+        } else {
+            String res = "";
+            int rightChild = getRight(index);
+            res += helper(rightChild, " " + soFar);
+            if (getNode(rightChild) != null) {
+                res += soFar + " /";
+            }
+            res += "\n" + soFar + getNode(index) + "\n";
+            int leftChild = getLeft(index);
+            if (getNode(leftChild) != null) {
+                res += soFar + " \\";
+            }
+            res += helper(leftChild, " " + soFar);
+            return res;
+        }
+
+    }
+
     /* nested class: Node */
-    private class Node {
+    protected class Node {
         private T myItem;
         private double myPriority;
         private Node(T item, double priority) {
@@ -240,6 +277,15 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         public double getPriority() {
             return myPriority;
         }
+
+        public void setMyItem(T myItem) {
+            this.myItem = myItem;
+        }
+
+        public void setMyPriority(double myPriority) {
+            this.myPriority = myPriority;
+        }
+
         @Override
         public String toString() {
             return myItem.toString() + ", " + myPriority;
