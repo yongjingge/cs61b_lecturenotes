@@ -6,7 +6,8 @@ import java.util.ArrayDeque;
 * Given a graph G and a source vertex s,
 * is there a directed path from s to v?
 * If so, find the path.
-* @source https://algs4.cs.princeton.edu/42digraph/DepthFirstDirectedPaths.java.html */
+* @source https://algs4.cs.princeton.edu/42digraph/DepthFirstDirectedPaths.java.html
+*  */
 public class DepthFirstDirectedPaths {
 
     private boolean[] marked;
