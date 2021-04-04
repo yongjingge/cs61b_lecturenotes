@@ -1,7 +1,8 @@
 package lecture27;
 
 /* This DFS class represents a data type for determining
-* the vertices reachable from a given Source Vertex.
+* the vertices reachable from a given Source Vertex (single-source reachability) or a set of source vertices (multiple-source reachability).
+*
 * This version does not find the paths.
 * @source https://algs4.cs.princeton.edu/42digraph/DirectedDFS.java.html
 *  */
