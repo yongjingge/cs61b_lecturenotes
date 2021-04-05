@@ -17,7 +17,7 @@ public class BreadthFirstDirectedPaths {
 
     private static final int INIFINITY = Integer.MAX_VALUE;
     private boolean[] marked; // marked[v] = is there a directed path from s to v?
-    private int[] edgeTo; // record t he last edge on shortest s->v path in edgeTo[v]
+    private int[] edgeTo; // record the last edge on shortest s->v path in edgeTo[v]
     private int[] distTo; // record the length of shortest s->v path in distTo[v]
 
     /* Computes the shortest path from a single source vertex 's' and every other vertex in graph
