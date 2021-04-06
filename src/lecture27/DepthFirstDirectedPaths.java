@@ -48,6 +48,7 @@ public class DepthFirstDirectedPaths {
         }
         ArrayDeque<Integer> path = new ArrayDeque<>();
         // traverse backwards from vertex 'v' to its previous edgeTo[v] vertex until it meets vertex 's'
+        // we have record the source vertex information in the 's' variable, so here we can use 'i != s' as a condition
         for (int i = v; i != s; i = edgeTo[i]) {
             path.push(i);
         }
