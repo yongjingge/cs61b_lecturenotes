@@ -8,7 +8,7 @@ import lecture27.Digraph;
 public class Topological {
 
     private Iterable<Integer> order; // stores vertices in a topological order if the graph has one
-    private int[] ranks; // ranks[v] = rank of vertex v, representing the index of vertex v in topological order
+    private int[] ranks; // ranks[v] = rank of vertex v, representing the index of vertex v in a topological order
 
     /* Constructor: an operation determines whether the graph has
     * a topological order. */
