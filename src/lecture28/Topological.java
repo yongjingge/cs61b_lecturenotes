@@ -15,6 +15,7 @@ public class Topological {
     public Topological(Digraph G) {
         /* determines if the graph has cycles */
         DirectedCycle finder = new DirectedCycle(G);
+
         if (! finder.hasCycle()) {
             DepthFirstOrder dfs = new DepthFirstOrder(G);
             /* DFS Postorder reversed version = topological ordering */
