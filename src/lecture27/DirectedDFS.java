@@ -44,7 +44,7 @@ public class DirectedDFS {
     * so count += 1
     *  */
     private void dfs(Digraph G, int v) {
-        cout += 1;
+        count += 1;
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (! marked[w]) {
