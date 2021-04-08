@@ -19,7 +19,7 @@ public class Topological {
         if (! finder.hasCycle()) {
             DepthFirstOrder dfs = new DepthFirstOrder(G);
             /* DFS Postorder reversed version = topological ordering */
-            order = dfs.reversePost();
+            order = dfs.getReversePostorder();
             ranks = new int[G.V()];
             int i = 0; // ranks' indices start from 0
             for (int v : order) {
