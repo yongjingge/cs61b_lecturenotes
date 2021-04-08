@@ -94,7 +94,7 @@ public class DepthFirstOrder {
             r += 1;
         }
 
-        // check that getPostIndex(v) is consisitent with getPostorder()
+        // check that getPostIndex(v) is consistent with getPostorder()
         r = 0;
         for (int v : getPostorder()) {
             if (getPostIndex(v) != r) {
