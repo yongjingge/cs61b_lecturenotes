@@ -40,7 +40,7 @@ public class DirectedCycle {
             } else if (! marked[w]) { // directed edge is i->w
                 edgeTo[w] = i;
                 dfs(G, w);
-            } else if (OnStack[w]) {
+            } else if (OnStack[w]) { // meaning vertex w has been traversed twice --> a cycle formed
                 cycle = new ArrayDeque<>();
                 for (int x = i; x != w; x = edgeTo[x]) {
                     // backwards traverse the graph from vertex i to one previous to vertex w
@@ -76,6 +76,8 @@ public class DirectedCycle {
                 }
                 last = v;
             }
+            // if first == last after all vertices in getCycle() being traversed,
+            // it means that there is a directed cycle.
             if (first != last) {
                 return false;
             }
