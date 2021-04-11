@@ -1,7 +1,6 @@
 package lecture29;
 
 import edu.princeton.cs.algs4.DirectedEdge;
-import edu.princeton.cs.algs4.Edge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.IndexMinPQ;
 
@@ -123,7 +122,7 @@ public class Dijkstra {
         // check that distTo[v] and edgeTo[v] are consistent
         // for source vertex, distTo[s] should == 0, edgeTo[s] should be null
         if ((distTo[s] != 0.0) || (edgeTo[s] != null)) {
-            System.out.println("distTo[s] and edgeTo[s] inconsistent");
+            System.out.println("distTo[s] and edgeTo[s] are inconsistent");
             return false;
         }
         for (int i = 0; i < G.V(); i += 1) {
@@ -133,7 +132,7 @@ public class Dijkstra {
             // when we traverse to other vertices but source, we expect
             // edgeTo[i] != null || distTo[i] == Double.POSITIVE_INFINITY
             if (edgeTo[i] == null && distTo[i] != Double.POSITIVE_INFINITY) {
-                System.out.println("distTo[i] and edgeTo[i] inconsistent");
+                System.out.println("distTo[i] and edgeTo[i] are inconsistent");
                 return false;
             }
         }
