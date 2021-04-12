@@ -1,6 +1,7 @@
 package lecture29;
 
-/* Represent a weighted edge in an EdgeWeightedDigraph */
+/* Represent a weighted edge in an EdgeWeightedDigraph
+* @source https://algs4.cs.princeton.edu/44sp/DirectedEdge.java.html */
 public class DirectedEdge {
 
     private final int v;
