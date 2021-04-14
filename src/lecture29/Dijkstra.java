@@ -1,7 +1,5 @@
 package lecture29;
 
-import edu.princeton.cs.algs4.DirectedEdge;
-import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.IndexMinPQ;
 
 import java.util.ArrayDeque;
@@ -32,7 +30,7 @@ public class Dijkstra {
         }
         int V = G.V(); // get the number of vertices
         distTo = new double[V];
-        edgeTo = new DirectedEdge[V];
+        edgeTo = new lecture29.DirectedEdge[V];
 
         // check if 's' is valid
         validateVertex(s);
