@@ -55,6 +55,9 @@ public class Prim {
         pq.insert(s, distTo[s]);
         while (! pq.isEmpty()) {
             // remove the closest vertex v and relax all its outgoing edges
+            // note: scan(G, vertex) will check and update all if vertex's outgoing edges,
+            // while pq is not empty, if we delete min from pq, the deleted vertex [v] and its edgeTo[v] will be part of the MST edges
+            // and we continue to scan that removed vertex, moving forward until we have V-1 edges in MST.
             int v = pq.delMin();
             scan(G, v);
         }
