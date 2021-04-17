@@ -37,7 +37,9 @@ public class Prim {
         for (int i = 0; i < V; i += 1) {
             distTo[i] = Double.POSITIVE_INFINITY;
         }
-        // run from each vertex to find minimum spanning forest (forest in case that the graph is not fully connected
+        // run from each vertex to find minimum spanning forest (forest in case that the graph is not fully connected)
+        // note that this is for minimum spanning FOREST, normally MST does not need a starting vertex
+        // if the graph is not fully connected, it means we need multiple MST that start from different vertices
         for (int i = 0; i < V; i += 1) {
             if (! marked[i]) {
                 prim(G, i); // run prim on each vertex: remove closest vertex from PQ and relax all edges pointing from that vertex
