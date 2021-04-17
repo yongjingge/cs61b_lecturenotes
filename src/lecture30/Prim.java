@@ -159,7 +159,7 @@ public class Prim {
                     uf.union(x, y);
                 }
             }
-            // check that edge s is the minimum weight edge in crossing cut
+            // check that edge e is the minimum weight edge in crossing cut
             for (Edge f : G.edges()) {
                 int x = f.either();
                 int y = f.other(x);
