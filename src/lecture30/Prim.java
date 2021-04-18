@@ -52,7 +52,6 @@ public class Prim {
 
     /* run Prim's Algorithm in the given graph G, starting from vertex s */
     private void prim(EdgeWeightedGraph G, int s) {
-        validateVertex(s);
         distTo[s] = 0.0; // distance from a tree vertex to a non-tree vertex
         pq.insert(s, distTo[s]);
         while (! pq.isEmpty()) {
@@ -104,14 +103,6 @@ public class Prim {
             res += e.weight();
         }
         return res;
-    }
-
-    /* check if index is valid */
-    private void validateVertex(int s) {
-        int V = distTo.length;
-        if (s < 0 || s >= V) {
-            throw new IllegalArgumentException("vertex " + s + " is invalid");
-        }
     }
 
     /* check optimality conditions */
