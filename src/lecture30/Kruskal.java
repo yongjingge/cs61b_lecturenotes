@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* Computes a minimum spanning tree in an edge-weighted graph.
-* This implementation uses a special priority queue to sort edge weights.
+* This implementation uses a special Priority Queue to sort weighted edges.
 * Its overall runtime is O(E logE).
+*
 * If we use a pre-sorted list of edges instead of a priority queue to store all edges
 * in an increasing order of weight, the overall runtime will be better since we don't
 * need to do insertion and deletion operations. The overall runtime can be O(E log*V).
