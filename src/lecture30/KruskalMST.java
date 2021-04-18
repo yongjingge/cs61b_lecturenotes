@@ -31,7 +31,7 @@ public class KruskalMST {
             edges[i] = e;
             i += 1;
         }
-        Arrays.sort(edges);
+        Arrays.sort(edges); // sort weighted edges using Array
 
         // run Greedy Algorithm
         UF uf = new UF(V);
