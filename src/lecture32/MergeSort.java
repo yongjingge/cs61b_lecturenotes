@@ -42,11 +42,11 @@ public class MergeSort {
         int j = mid + 1;
         for (int k = lo; k <= hi; k += 1) {
             if (i > mid) {
-                // a[lo...mid] is all merged, we just need to add a[mid+1...hi] into the result array
+                // a[lo...mid] is all merged, we just need to add a[mid+1...hi](which is already sorted) into the result array
                 a[k] = aux[j];
                 j += 1;
             } else if (j > hi) {
-                // a[mid+1...hi] is all merged, we just need to add a[lo...mid] into the result array
+                // a[mid+1...hi] is all merged, we just need to add a[lo...mid](which is already sorted) into the result array
                 a[k] = aux[i];
                 i += 1;
             } else if (less(aux[j], aux[i])) {
