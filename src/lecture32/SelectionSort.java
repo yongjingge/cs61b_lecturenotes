@@ -10,9 +10,7 @@ package lecture32;
 public class SelectionSort {
 
     /* This class should not be instantiated. */
-
-    public SelectionSort() {
-    }
+    private SelectionSort() {}
 
     public static void sort(Comparable[] a) {
         int len = a.length;
