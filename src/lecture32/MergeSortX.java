@@ -67,7 +67,7 @@ public class MergeSortX {
         // if a[mid] is less than or equal to a[mid+1].
         if (! less(src[mid + 1], src[mid])) {
             System.arraycopy(src, lo, dst, lo, hi - lo + 1);
-            return;
+            return; // in this case, no need to call the merge() method
         }
 
         merge(src, dst, lo, mid, hi);
