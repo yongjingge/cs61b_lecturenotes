@@ -16,6 +16,7 @@ public class QuickSortRandom {
     }
 
     private static void quickSort(Comparable[] a, int lo, int hi) {
+        // base case
         if (hi <= lo) {
             return;
         }
