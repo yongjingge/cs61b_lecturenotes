@@ -1,4 +1,4 @@
-package lecture32;
+package lecture33;
 
 /* This class provides static methods for sorting an array of Comparable
 * using quick sort.
