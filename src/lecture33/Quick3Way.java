@@ -2,6 +2,8 @@ package lecture33;
 
 import edu.princeton.cs.algs4.StdRandom;
 
+import java.util.Arrays;
+
 /* This class provides static methods for sorting an array of Comparable
  * using quicksort with 3-way partitioning.
  * @source https://algs4.cs.princeton.edu/23quicksort/Quick3way.java.html
@@ -27,7 +29,7 @@ public class Quick3Way {
         Comparable p = a[lo];
         int i = lo + 1; // i is used to traverse the whole array
         /* this is the 3-way partitioning algorithm */
-        while (i <= hi) {
+        while (i <= gt) {
             int cmp = a[i].compareTo(p);
             if (cmp < 0) { // if a[i] is less than pivot
                 swap(a, lt, i);
@@ -70,5 +72,12 @@ public class Quick3Way {
     /* helper method: less */
     private static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
+    }
+
+    /* test using main */
+    public static void main(String[] args) {
+        Integer[] a = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+        sort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
