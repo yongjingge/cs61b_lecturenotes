@@ -1,5 +1,7 @@
 package lecture33;
 
+import java.util.Arrays;
+
 /* This class provides static methods for sorting an array of Comparable
 * using quick sort.
 * It picks pivots randomly to ensure a N logN runtime.
@@ -75,5 +77,12 @@ public class QuickSortRandom {
             }
         }
         return true;
+    }
+
+    /* test using main */
+    public static void main(String[] args) {
+        Integer[] a = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+        sort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
