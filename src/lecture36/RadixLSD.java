@@ -50,6 +50,7 @@ public class RadixLSD {
                 arr[i] = aux[i];
             }
 
+            // clear count for the next round of counting sort
             for (int i = 0; i < count.length; i += 1) {
                 count[i] = 0;
             }
