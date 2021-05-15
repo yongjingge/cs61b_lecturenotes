@@ -34,8 +34,9 @@ public class RadixLSD {
             }
 
             /* compute cumulates: get the starting index of specific digit number */
-            for (int i = 0; i < radix; i += 1) {
-                count[i + 1] += count[i];
+            for (int i = 1; i < radix; i += 1) {
+                count[i] += count[i - 1];
+                System.out.println("digit " + (i-1) + " starts from index " + count[i]);
             }
 
             for (int i = 0; i < len; i += 1) {
