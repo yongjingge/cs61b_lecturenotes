@@ -51,7 +51,7 @@ public class SelectionSort {
     private static boolean isSorted(Comparable[] a, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i += 1) {
             if (less(a[i], a[i-1])) {
-                // if a[lo+1] is less than a[lo]
+                // if a[lo+1] is less than a[lo], inversion exists
                 return false;
             }
         }
