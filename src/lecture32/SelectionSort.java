@@ -1,5 +1,7 @@
 package lecture32;
 
+import java.util.Arrays;
+
 /* This class provides static methods for sorting an array of Comparable
 * using Selection Sort.
 * This implementation makes compares to sort any array of length N, and
@@ -47,7 +49,7 @@ public class SelectionSort {
 
     /* check if the array is sorted from array[lo] to array[hi] */
     private static boolean isSorted(Comparable[] a, int lo, int hi) {
-        for (int i = lo + 1; i < hi; i += 1) {
+        for (int i = lo + 1; i <= hi; i += 1) {
             if (less(a[i], a[i-1])) {
                 // if a[lo+1] is less than a[lo]
                 return false;
@@ -61,5 +63,12 @@ public class SelectionSort {
         for (int i = 0; i < a.length; i += 1) {
             System.out.println(a[i]);
         }
+    }
+
+    /* test using main */
+    public static void main(String[] args) {
+        Integer[] a = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+        sort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
