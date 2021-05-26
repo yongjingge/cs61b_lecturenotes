@@ -42,7 +42,7 @@ public class SelectionSort {
         a[j] = temp;
     }
 
-    /* check if the array is fully sorted */
+    /* check if array is fully sorted */
     private static boolean isSorted(Comparable[] a) {
         return isSorted(a, 0, a.length - 1);
     }
