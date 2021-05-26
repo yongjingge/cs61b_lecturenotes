@@ -30,7 +30,7 @@ public class SelectionSort {
         assert isSorted(a);
     }
 
-    /* helper method: less */
+    /* helper method: less, a compareTo method */
     private static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
