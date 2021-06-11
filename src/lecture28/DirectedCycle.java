@@ -43,7 +43,7 @@ public class DirectedCycle {
             } else if (OnStack[w]) { // meaning vertex w has been traversed twice --> a cycle formed
                 cycle = new ArrayDeque<>();
                 for (int x = i; x != w; x = edgeTo[x]) {
-                    // backwards traverse the graph from vertex i to one previous to vertex w
+                    // backwards traverse the graph from vertex i to one previous, until it gets to vertex w, demonstrating a cycle's been formed
                     cycle.push(x);
                 }
                 cycle.push(w);
